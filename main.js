@@ -75,7 +75,10 @@
       });
     });
     desktop.addEventListener("change", () => setMenu(false));
-    const measureHeader = () => document.documentElement.style.setProperty("--header-height", header.offsetHeight + "px");
+    const measureHeader = () => {
+      if (menu.classList.contains("is-open") && !desktop.matches) return;
+      document.documentElement.style.setProperty("--header-height", header.offsetHeight + "px");
+    };
     if ("ResizeObserver" in window) new ResizeObserver(measureHeader).observe(header);
     else window.addEventListener("resize", measureHeader);
     measureHeader();
