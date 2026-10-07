@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b2447">
   <title>Distrito 549 Barbearia | Barbearia em Americana - SP</title>
   <meta name="description" content="Distrito 549 Barbearia em Americana - SP. Corte de cabelo e barba na Vila Santa Catarina. Há 5 anos no mercado. Agende pelo WhatsApp.">
@@ -16,10 +16,240 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <style>
+:root {
+  --white: #ffffff;
+  --off-white: #f5f7fb;
+  --navy: #0b2447;
+  --blue: #1d4ed8;
+  --red: #d62828;
+  --ink: #0e1726;
+  --muted: #536175;
+  --line: #dce2eb;
+  --whatsapp: #25d366;
+  --font-body: "Inter", sans-serif;
+  --font-display: "Oswald", sans-serif;
+  --radius: 8px;
+  --shadow: 0 12px 32px rgb(11 36 71 / 6%);
+  --page-gutter: 20px;
+  --header-base-height: 86px;
+  --header-height: var(--header-base-height);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 20px); }
+body { margin: 0; color: var(--ink); background: var(--white); font-family: var(--font-body); font-size: 1rem; line-height: 1.75; overflow-wrap: break-word; }
+[hidden] { display: none !important; }
+a { color: var(--blue); text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a, button { touch-action: manipulation; }
+img { display: block; max-width: 100%; }
+button { font: inherit; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { color: var(--navy); font-family: var(--font-display); font-weight: 600; line-height: 1.12; overflow-wrap: anywhere; }
+h2 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
+h3 { font-size: 1.7rem; }
+.container { width: calc(100% - var(--page-gutter) * 2); max-width: 1180px; margin-inline: auto; padding-inline: 0; }
+.hero-layout > *, .about-layout > *, .section-heading > *, .contact-layout > *, .contact-item > div, .final-cta-layout > *, .footer-layout > * { min-width: 0; }
+@supports (width: max(1px, 2px)) {
+  .container { width: calc(100% - max(var(--page-gutter), env(safe-area-inset-left)) - max(var(--page-gutter), env(safe-area-inset-right))); }
+}
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+.hero :focus-visible, .site-footer :focus-visible, .booking :focus-visible, .final-cta :focus-visible { outline-color: var(--white); }
+.skip-link { position: fixed; top: 12px; left: 12px; z-index: 3000; padding: 12px 18px; color: var(--white); background: var(--navy); transform: translateY(-180%); }
+.skip-link:focus { transform: translateY(0); }
+.barber-stripe { height: 5px; background: repeating-linear-gradient(120deg, var(--white) 0 18px, var(--navy) 18px 36px, var(--white) 36px 54px, var(--red) 54px 72px); }
+.site-header { position: relative; inset: 0 0 auto; z-index: 1200; color: var(--navy); background: var(--white); transition: box-shadow .25s; }
+.js-enabled .site-header { position: fixed; }
+.site-header.is-scrolled { box-shadow: 0 4px 24px rgb(11 36 71 / 12%); }
+.nav-inner { min-height: calc(var(--header-base-height) - 5px); display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-block: 12px; }
+.brand { display: inline-flex; min-width: 0; max-width: 100%; flex-shrink: 1; color: var(--navy); }
+.brand-wordmark { display: block; font-family: var(--font-display); font-size: min(1.5rem, 6.8vw); font-weight: 600; line-height: 1; letter-spacing: -.03em; }
+.brand-wordmark strong { color: var(--red); font-weight: 700; }
+.brand-wordmark small { display: block; margin-top: 7px; font-family: var(--font-body); font-size: .75rem; font-weight: 500; letter-spacing: .28em; }
+.brand-logo { width: 170px; height: 48px; object-fit: contain; }
+.main-nav { display: flex; width: 100%; flex-direction: column; gap: 8px; padding-block: 12px; }
+.main-nav > a:not(.btn) { display: inline-flex; min-height: 44px; align-items: center; padding: 8px 0; color: var(--navy); font-size: .875rem; font-weight: 500; }
+.main-nav > a:not(.btn):hover, .main-nav > a[aria-current]:not(.btn) { color: var(--blue); }
+.menu-toggle { width: 44px; height: 44px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; border: 1px solid var(--line); border-radius: var(--radius); color: var(--navy); background: transparent; }
+.menu-toggle span { display: block; width: 19px; height: 2px; background: currentColor; transition: transform .2s, opacity .2s; }
+.menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.js-enabled .main-nav { position: absolute; inset: 100% 0 auto; display: none; width: 100%; max-height: calc(100vh - var(--header-height)); max-height: calc(100dvh - var(--header-height)); padding: 12px var(--page-gutter) max(12px, env(safe-area-inset-bottom)); overflow-y: auto; overscroll-behavior: contain; background: var(--white); box-shadow: 0 12px 24px rgb(11 36 71 / 12%); }
+.js-enabled .main-nav.is-open { display: flex; }
+.btn { display: inline-flex; max-width: 100%; min-height: 48px; align-items: center; justify-content: center; gap: 10px; padding: 13px 21px; border: 1px solid transparent; border-radius: 5px; font-family: var(--font-body); font-size: .875rem; font-weight: 600; line-height: 1.4; text-align: center; white-space: normal; overflow-wrap: anywhere; transition: background-color .2s, border-color .2s, transform .2s, box-shadow .2s; }
+.btn > i, .text-link > i, .tradition-badge > i, .booking-note > i, .contact-item > i, .map-frame p > i { flex-shrink: 0; }
+.btn-primary { --bs-btn-bg: var(--red); --bs-btn-border-color: var(--red); --bs-btn-hover-bg: #b91f1f; --bs-btn-hover-border-color: #b91f1f; --bs-btn-active-bg: #a91d1d; --bs-btn-active-border-color: #a91d1d; color: var(--white); background: var(--red); }
+.btn-primary:hover { color: var(--white); background: #b91f1f; border-color: #b91f1f; }
+.btn-outline-light { color: var(--white); background: transparent; border-color: rgb(255 255 255 / 55%); }
+.btn-outline-light:hover { color: var(--navy); background: var(--white); border-color: var(--white); }
+.btn-outline-navy { color: var(--navy); background: transparent; border-color: var(--line); }
+.btn-outline-navy:hover { color: var(--white); background: var(--navy); border-color: var(--navy); }
+.button-group { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: calc(var(--header-height) + 52px) 0 24px; color: var(--white); background: var(--navy); }
+.hero-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 38px; flex: 1; align-items: center; }
+.eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; color: var(--blue); font-size: .75rem; font-weight: 600; letter-spacing: .12em; line-height: 1.5; }
+.eyebrow > span { width: 25px; height: 2px; flex-shrink: 0; background: var(--red); }
+.eyebrow-light { color: #d9e5f7; }
+.hero h1 { margin-bottom: 24px; color: var(--white); font-size: clamp(3.3rem, 8vw, 6.9rem); letter-spacing: -.035em; line-height: 1.03; }
+.hero h1 span { color: #a9c7ff; }
+.hero-description { margin-bottom: 28px; color: #d2deee; font-size: 1rem; line-height: 1.9; }
+.tradition-badge { display: inline-flex; max-width: 100%; align-items: center; gap: 10px; margin: 26px 0 0; color: #d9e5f7; font-size: .8125rem; }
+.tradition-badge i { color: #a9c7ff; font-size: 1.25rem; }
+.photo-frame { position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(ellipse at 80% 0, rgb(29 78 216 / 20%), transparent 65%), repeating-linear-gradient(135deg, transparent 0 14px, rgb(255 255 255 / 3%) 14px 15px), #122f56; }
+.photo-frame > img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+.hero-visual { width: 100%; aspect-ratio: 1.25; min-height: 20rem; min-width: 0; border: 1px solid rgb(255 255 255 / 16%); border-radius: 2px; }
+.hero-monogram { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--white); font-family: var(--font-display); }
+.hero-monogram > span { font-size: 1rem; letter-spacing: .34em; padding-left: .34em; }
+.hero-monogram > strong { font-size: clamp(5rem, 20vw, 14rem); font-weight: 500; line-height: 1.15; letter-spacing: -.05em; }
+.visual-caption { position: absolute; inset: auto 18px 18px; z-index: 2; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: #d9e5f7; font-size: .75rem; letter-spacing: .12em; }
+.visual-caption > span { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.photo-frame.has-photo .hero-monogram { display: none; }
+.photo-frame.has-photo .visual-caption { padding: 10px; background: rgb(11 36 71 / 88%); }
+.hero-bottom { display: flex; flex-wrap: wrap; padding-inline-end: 80px; justify-content: space-between; gap: 16px; padding-top: 36px; font-size: .75rem; font-weight: 500; letter-spacing: .12em; color: #b6c8df; }
+.hero-bottom a { display: inline-flex; max-width: 100%; align-items: center; gap: 14px; color: var(--white); font-size: .8125rem; letter-spacing: 0; }
+.whatsapp-float { position: fixed; right: 20px; bottom: 20px; right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom)); z-index: 1100; width: 58px; height: 58px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--white); border-radius: 50%; color: #073522; background: var(--whatsapp); font-size: 1.65rem; box-shadow: 0 6px 22px rgb(0 0 0 / 18%); animation: whatsapp-pulse 3.5s infinite; }
+.whatsapp-float:hover { color: #073522; background: #35e176; animation: none; }
+.whatsapp-tooltip { display: none; position: absolute; right: calc(100% + 12px); width: max-content; padding: 8px 13px; border-radius: 5px; color: var(--white); background: var(--navy); font-size: .8125rem; opacity: 0; pointer-events: none; transition: opacity .2s; }
+@keyframes whatsapp-pulse { 0%, 70%, 100% { box-shadow: 0 0 0 0 rgb(37 211 102 / 0%), 0 6px 22px rgb(0 0 0 / 18%); } 80% { box-shadow: 0 0 0 8px rgb(37 211 102 / 20%), 0 6px 22px rgb(0 0 0 / 18%); } }
+@media (min-width: 768px) {
+  :root { --page-gutter: 32px; }
+  .hero-layout { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 40px; }
+  .hero-visual { width: 100%; aspect-ratio: .84; }
+  .hero { padding-top: calc(var(--header-height) + 48px); }
+  .hero-bottom { padding-top: 48px; }
+}
+@media (min-width: 1024px) {
+  .nav-inner { flex-wrap: nowrap; }
+  .main-nav, .js-enabled .main-nav { position: static; display: flex; width: auto; max-height: none; box-shadow: none; flex-direction: row; align-items: center; gap: 28px; padding: 0; overflow: visible; }
+  .menu-toggle { display: none; }
+  .hero-layout { gap: 72px; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { transform: translateY(-2px); }
+  .whatsapp-tooltip { display: block; }
+  .whatsapp-float:hover .whatsapp-tooltip, .whatsapp-float:focus-visible .whatsapp-tooltip { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+.section { padding-block: 72px; }
+.section-heading { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 36px; }
+.section-heading h2 { margin-bottom: 0; }
+.section-heading > p { margin: 0; color: var(--muted); }
+.about-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.about h2 { margin-bottom: 0; }
+.about-copy p { color: var(--muted); }
+.text-link { display: inline-flex; max-width: 100%; align-items: center; gap: 10px; min-height: 44px; font-size: .875rem; font-weight: 600; }
+.text-link:hover { color: var(--navy); text-decoration: underline; text-underline-offset: 4px; }
+.about-number { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--navy); }
+.about-number strong { font-family: var(--font-display); font-size: 5rem; font-weight: 500; line-height: 1; }
+.about-number span { min-width: 0; max-width: 100%; overflow-wrap: anywhere; font-size: .75rem; font-weight: 600; letter-spacing: .06em; line-height: 1.7; }
+.services, .contact { background: var(--off-white); }
+.services-grid { display: grid; gap: 18px; }
+.service-card { display: flex; flex-direction: column; min-width: 0; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow); transition: border-color .2s, transform .2s; }
+.service-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.service-top > i { display: flex; width: 56px; height: 56px; align-items: center; justify-content: center; border: 1px solid #d5e0f9; border-radius: 50%; color: var(--blue); font-size: 1.7rem; background: var(--off-white); }
+.service-top > span { color: var(--muted); font-family: var(--font-display); font-size: 1.125rem; }
+.service-card h3 { margin-bottom: 14px; }
+.service-card p { flex: 1; color: var(--muted); }
+.service-price { display: block; margin-block: 6px 20px; color: var(--muted); font-size: .8125rem; }
+.reasons-grid { display: grid; gap: 28px; }
+.reason { padding-top: 25px; border-top: 1px solid var(--line); }
+.reason > i { display: block; margin-bottom: 18px; color: var(--blue); font-size: 1.65rem; }
+.reason h3 { font-size: 1.4rem; margin-bottom: 12px; }
+.reason p { max-width: 32ch; margin-bottom: 0; color: var(--muted); font-size: .9375rem; }
+.booking { position: relative; color: var(--white); background: var(--navy); }
+.booking h2, .booking h3 { color: var(--white); }
+.booking-steps { list-style: none; display: grid; gap: 28px; padding: 0; margin: 40px 0 28px; }
+.booking-steps li { display: flex; align-items: flex-start; gap: 18px; }
+.step-number { display: flex; width: 48px; height: 48px; flex-shrink: 0; align-items: center; justify-content: center; border: 1px solid rgb(255 255 255 / 28%); border-radius: 50%; color: #a9c7ff; font-family: var(--font-display); font-size: 1.125rem; }
+.booking-steps h3 { margin: 4px 0 10px; font-size: 1.4rem; }
+.booking-steps p { margin-bottom: 0; color: #d2deee; font-size: .875rem; }
+.booking-note { display: flex; align-items: center; gap: 10px; margin: 0; padding-top: 24px; border-top: 1px solid rgb(255 255 255 / 17%); color: #d2deee; font-size: .8125rem; }
+.section-stripe { position: absolute; inset: auto 0 0; height: 4px; }
+.contact-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; }
+.contact h2 { margin-bottom: 30px; }
+.contact-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 23px; }
+.contact-item > i { margin-top: 1px; color: var(--blue); font-size: 1.25rem; }
+.contact-item h3 { margin-bottom: 7px; color: var(--navy); font-family: var(--font-body); font-size: .875rem; font-weight: 600; }
+.contact-item p, .contact-item address { margin: 0; color: var(--muted); font-style: normal; font-size: .9375rem; }
+.contact-item a { font-size: .9375rem; }
+.contact .button-group { margin-top: 30px; }
+.map-frame { overflow: hidden; align-self: stretch; min-width: 0; border: 1px solid var(--line); border-radius: var(--radius); background: #e3eaf4; }
+.map-frame iframe { display: block; width: 100%; height: 360px; border: 0; }
+.map-frame p { display: flex; align-items: center; gap: 10px; margin: 0; padding: 15px 20px; color: var(--navy); background: var(--white); font-size: .8125rem; }
+.final-cta { color: var(--white); background: var(--navy); }
+.final-cta-layout { display: flex; flex-wrap: wrap; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 28px; }
+.final-cta h2 { margin-bottom: 20px; color: var(--white); font-size: clamp(2.5rem, 6vw, 4rem); }
+.final-cta p:not(.eyebrow) { margin-bottom: 0; color: #d2deee; }
+.site-footer { color: #d2deee; background: var(--navy); }
+.footer-layout { display: grid; gap: 32px; padding-block: 45px; }
+.footer-brand { color: var(--white); margin-bottom: 18px; }
+.footer-brand .brand-wordmark { font-size: min(1.75rem, 8vw); }
+.footer-brand strong { color: #ff8d8d; }
+.site-footer p, .site-footer address { margin-bottom: 0; font-style: normal; font-size: .875rem; }
+.site-footer h2 { margin-bottom: 18px; color: var(--white); font-family: var(--font-body); font-size: .9375rem; font-weight: 600; }
+.site-footer a:not(.brand) { display: inline-flex; max-width: 100%; overflow-wrap: anywhere; min-height: 32px; align-items: center; color: #d2deee; font-size: .875rem; }
+.site-footer a:not(.brand):hover { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
+.site-footer nav { display: flex; flex-direction: column; align-items: flex-start; }
+.footer-bottom { display: flex; flex-direction: column; gap: 12px; padding-block: 24px 100px; border-top: 1px solid rgb(255 255 255 / 17%); }
+.footer-bottom p { font-size: .75rem; }
+.footer-bottom > span { color: #b6c8df; font-size: .75rem; letter-spacing: .12em; }
+.reveal-pending { opacity: 0; transform: translateY(20px); }
+[data-reveal] { transition: opacity .55s, transform .55s; }
+@media (min-width: 768px) {
+  .section { padding-block: 100px; }
+  .section-heading { flex-direction: row; align-items: flex-end; gap: 32px; margin-bottom: 42px; }
+  .about-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 40px; }
+  .about-number { grid-column: 1 / -1; }
+  .services-grid, .reasons-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service-card { padding: 24px; }
+  .booking-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .booking-steps li { flex-direction: column; gap: 16px; }
+  .contact-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+  .map-frame iframe { height: calc(100% - 54px); min-height: 450px; }
+  .final-cta-layout { flex-direction: row; align-items: center; gap: 50px; }
+  .final-cta .btn { flex-shrink: 0; }
+  .footer-layout { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) minmax(0, .6fr); gap: 40px; padding-block: 56px; }
+  .footer-bottom { flex-direction: row; justify-content: space-between; gap: 24px; }
+}
+@media (min-width: 1024px) {
+  .about-layout { grid-template-columns: minmax(0, .95fr) minmax(0, 1.25fr) minmax(0, .5fr); gap: 56px; align-items: center; }
+  .about-number { grid-column: auto; flex-direction: column; align-items: flex-start; padding: 8px 0 8px 36px; border-top: 0; border-left: 1px solid var(--line); }
+  .about-number strong { font-size: min(6rem, 10vw); }
+  .service-card { padding: 34px; }
+  .contact-layout { gap: 72px; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover { border-color: #b3c5ec; transform: translateY(-4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending { opacity: 1; transform: none; }
+}
+@media print {
+  .site-header, .whatsapp-float, .map-frame, .hero-visual { display: none !important; }
+  .hero { min-height: auto; padding: 30px 0; }
+  .section { padding-block: 28px; }
+  .reveal-pending { opacity: 1; transform: none; }
+  .footer-bottom { padding-bottom: 24px; }
+}
+
+@media (pointer: coarse) {
+  .site-footer a:not(.brand) { min-height: 44px; }
+}
+@media (max-width: 767px) {
+  .hero .button-group, .contact .button-group { align-items: stretch; }
+  .hero .button-group .btn, .contact .button-group .btn { width: 100%; }
+}
+
+.bi { display: inline-block; font-style: normal; }
+.bi svg { display: block; width: 1em; height: 1em; fill: currentColor; }
+</style>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
-  <script src="js/main.js" defer></script>
+  
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -27,7 +257,6 @@
     <div class="barber-stripe" aria-hidden="true"></div>
     <div class="container nav-inner">
       <a class="brand" href="#inicio" aria-label="Distrito 549 Barbearia — início">
-        <img class="brand-logo" src="assets/img/logo.png" alt="Distrito 549 Barbearia" width="170" height="48" data-logo hidden>
         <span class="brand-wordmark" data-logo-fallback>DISTRITO <strong>549</strong><small>BARBEARIA</small></span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu" hidden>
@@ -37,7 +266,9 @@
         <a href="#sobre">Sobre</a>
         <a href="#servicos">Serviços</a>
         <a href="#contato">Localização</a>
-        <a class="btn btn-primary" href="#contato" data-whatsapp aria-label="Agendar no WhatsApp do Distrito 549" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp" aria-hidden="true"></i> Agendar no WhatsApp</a>
+        <a class="btn btn-primary" href="https://wa.me/5519987815442?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-whatsapp aria-label="Agendar no WhatsApp do Distrito 549" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg></i> Agendar no WhatsApp</a>
       </nav>
     </div>
   </header>
@@ -49,18 +280,25 @@
           <h1 id="hero-title">SEU ESTILO.<br>SEU <span>DISTRITO.</span></h1>
           <p class="hero-description">Corte de cabelo e barba.<br>Seu próximo horário começa com uma conversa.</p>
           <div class="button-group">
-            <a class="btn btn-primary" href="#contato" data-whatsapp aria-label="Agendar um horário pelo WhatsApp do Distrito 549" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp" aria-hidden="true"></i> Agendar no WhatsApp</a>
+            <a class="btn btn-primary" href="https://wa.me/5519987815442?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-whatsapp aria-label="Agendar um horário pelo WhatsApp do Distrito 549" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg></i> Agendar no WhatsApp</a>
             <a class="btn btn-outline-light" href="#servicos">Ver serviços</a>
           </div>
-          <p class="tradition-badge"><i class="bi bi-patch-check" aria-hidden="true"></i> 5 anos de tradição em Americana</p>
+          <p class="tradition-badge"><i class="bi bi-patch-check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+  <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z"/>
+</svg></i> 5 anos de tradição em Americana</p>
         </div>
         <div class="hero-visual photo-frame" data-photo-frame>
-          <img src="assets/img/hero-barbearia.png" alt="Espaço reservado para uma foto real da Distrito 549 Barbearia" width="900" height="1100" fetchpriority="high" data-photo>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYGBgAAAABQABpfZFQAAAAABJRU5ErkJggg==" alt="Espaço reservado para uma foto real da Distrito 549 Barbearia" width="900" height="1100" fetchpriority="high" data-photo>
           <div class="hero-monogram" aria-hidden="true"><span>DISTRITO</span><strong>549</strong><span>BARBEARIA</span></div>
           <div class="visual-caption"><span>VILA SANTA CATARINA</span><span>AMERICANA, SP</span></div>
         </div>
       </div>
-      <div class="container hero-bottom"><span>CORTE · BARBA</span><a href="#sobre">Conheça o Distrito <i class="bi bi-chevron-down" aria-hidden="true"></i></a></div>
+      <div class="container hero-bottom"><span>CORTE · BARBA</span><a href="#sobre">Conheça o Distrito <i class="bi bi-chevron-down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+</svg></i></a></div>
     </section>
     <section class="section about" id="sobre" aria-labelledby="sobre-title">
       <div class="container about-layout">
@@ -71,7 +309,9 @@
         <div class="about-copy" data-reveal>
           <p>O Distrito 549 Barbearia está há 5 anos em Americana, no bairro Vila Santa Catarina. Corte de cabelo e barba.</p>
           <p>Quer conhecer a barbearia ou combinar seu próximo horário? Fale com a gente pelo WhatsApp.</p>
-          <a class="text-link" href="#contato" data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Conversar com o Distrito 549 pelo WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Vamos conversar</a>
+          <a class="text-link" href="https://wa.me/5519987815442?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Conversar com o Distrito 549 pelo WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg></i> Vamos conversar</a>
         </div>
         <div class="about-number" data-reveal><strong>05</strong><span>ANOS DE MERCADO<br>EM AMERICANA</span></div>
       </div>
@@ -85,18 +325,26 @@
         </div>
         <div class="services-grid">
           <article class="service-card" data-reveal>
-            <div class="service-top"><i class="bi bi-scissors" aria-hidden="true"></i><span>01</span></div>
+            <div class="service-top"><i class="bi bi-scissors" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M3.5 3.5c-.614-.884-.074-1.962.858-2.5L8 7.226 11.642 1c.932.538 1.472 1.616.858 2.5L8.81 8.61l1.556 2.661a2.5 2.5 0 1 1-.794.637L8 9.73l-1.572 2.177a2.5 2.5 0 1 1-.794-.637L7.19 8.61zm2.5 10a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0m7 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+</svg></i><span>01</span></div>
             <h3>Corte de cabelo</h3>
             <p>Seu próximo corte começa aqui. Converse com a gente e combine seu horário.</p>
             <span class="service-price">Valores sob consulta</span>
-            <a class="btn btn-outline-navy" href="#contato" data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Consultar corte de cabelo pelo WhatsApp do Distrito 549"><i class="bi bi-whatsapp" aria-hidden="true"></i> Agendar corte</a>
+            <a class="btn btn-outline-navy" href="https://wa.me/5519987815442?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Consultar corte de cabelo pelo WhatsApp do Distrito 549"><i class="bi bi-whatsapp" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg></i> Agendar corte</a>
           </article>
           <article class="service-card" data-reveal>
-            <div class="service-top"><i class="bi bi-person" aria-hidden="true"></i><span>02</span></div>
+            <div class="service-top"><i class="bi bi-person" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+</svg></i><span>02</span></div>
             <h3>Barba</h3>
             <p>Reserve um momento para cuidar da barba. Consulte os detalhes pelo WhatsApp.</p>
             <span class="service-price">Valores sob consulta</span>
-            <a class="btn btn-outline-navy" href="#contato" data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Consultar serviço de barba pelo WhatsApp do Distrito 549"><i class="bi bi-whatsapp" aria-hidden="true"></i> Agendar barba</a>
+            <a class="btn btn-outline-navy" href="https://wa.me/5519987815442?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Consultar serviço de barba pelo WhatsApp do Distrito 549"><i class="bi bi-whatsapp" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg></i> Agendar barba</a>
           </article>
         </div>
       </div>
@@ -106,21 +354,33 @@
       <div class="container">
         <div class="section-heading" data-reveal><div><p class="eyebrow"><span></span> POR QUE O DISTRITO 549</p><h2 id="diferenciais-title">Tradição que faz<br>parte do bairro.</h2></div></div>
         <div class="reasons-grid">
-          <article class="reason" data-reveal><i class="bi bi-calendar2-check" aria-hidden="true"></i><h3>5 anos de mercado</h3><p>Há 5 anos, o Distrito 549 faz parte de Americana.</p></article>
-          <article class="reason" data-reveal><i class="bi bi-geo-alt" aria-hidden="true"></i><h3>Na Vila Santa Catarina</h3><p>Estamos na R. Tuiuti, 549, em Americana – SP.</p></article>
+          <article class="reason" data-reveal><i class="bi bi-calendar2-check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
+  <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5z"/>
+</svg></i><h3>5 anos de mercado</h3><p>Há 5 anos, o Distrito 549 faz parte de Americana.</p></article>
+          <article class="reason" data-reveal><i class="bi bi-geo-alt" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+</svg></i><h3>Na Vila Santa Catarina</h3><p>Estamos na R. Tuiuti, 549, em Americana – SP.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section booking" id="agendamento" aria-labelledby="agendamento-title">
       <div class="container">
-        <div class="section-heading" data-reveal><div><p class="eyebrow eyebrow-light"><span></span> COMO AGENDAR</p><h2 id="agendamento-title">Uma conversa.<br>Seu próximo horário.</h2></div><a class="btn btn-primary" href="#contato" data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Iniciar agendamento pelo WhatsApp do Distrito 549"><i class="bi bi-whatsapp" aria-hidden="true"></i> Vamos agendar</a></div>
+        <div class="section-heading" data-reveal><div><p class="eyebrow eyebrow-light"><span></span> COMO AGENDAR</p><h2 id="agendamento-title">Uma conversa.<br>Seu próximo horário.</h2></div><a class="btn btn-primary" href="https://wa.me/5519987815442?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Iniciar agendamento pelo WhatsApp do Distrito 549"><i class="bi bi-whatsapp" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg></i> Vamos agendar</a></div>
         <ol class="booking-steps">
           <li data-reveal><span class="step-number" aria-hidden="true">01</span><div><h3>Chama no WhatsApp</h3><p>Conte qual serviço você procura.</p></div></li>
           <li data-reveal><span class="step-number" aria-hidden="true">02</span><div><h3>Combina o horário</h3><p>Consulte a disponibilidade com a gente.</p></div></li>
           <li data-reveal><span class="step-number" aria-hidden="true">03</span><div><h3>É só chegar</h3><p>Te esperamos no horário combinado.</p></div></li>
         </ol>
-        <p class="booking-note"><i class="bi bi-clock" aria-hidden="true"></i> Consulte nosso horário pelo WhatsApp</p>
+        <p class="booking-note"><i class="bi bi-clock" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+</svg></i> Consulte nosso horário pelo WhatsApp</p>
       </div>
       <div class="barber-stripe section-stripe" aria-hidden="true"></div>
     </section>
@@ -130,20 +390,38 @@
         <div data-reveal>
           <p class="eyebrow"><span></span> LOCALIZAÇÃO E CONTATO</p>
           <h2 id="contato-title">Encontre a gente<br>na Tuiuti, 549.</h2>
-          <div class="contact-item"><i class="bi bi-geo-alt" aria-hidden="true"></i><div><h3>Nosso endereço</h3><address>R. Tuiuti, 549 – Vila Santa Catarina,<br>Americana – SP, 13466-260</address></div></div>
-          <div class="contact-item"><i class="bi bi-telephone" aria-hidden="true"></i><div><h3>Telefone / WhatsApp</h3><a href="#contato" data-phone aria-label="Ligar para o Distrito 549 Barbearia">(19) 98781-5442</a></div></div>
-          <div class="contact-item"><i class="bi bi-clock" aria-hidden="true"></i><div><h3>Horários</h3><p>Consulte nosso horário pelo WhatsApp</p></div></div>
-          <div class="button-group"><a class="btn btn-primary" href="#contato" data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Falar com o Distrito 549 pelo WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Falar no WhatsApp</a><a class="btn btn-outline-navy" href="https://www.google.com/maps/dir/?api=1&amp;destination=R.%20Tuiuti%2C%20549%2C%20Vila%20Santa%20Catarina%2C%20Americana%20-%20SP" target="_blank" rel="noopener noreferrer" aria-label="Abrir rota até o Distrito 549 no Google Maps"><i class="bi bi-geo-alt" aria-hidden="true"></i> Como chegar</a></div>
+          <div class="contact-item"><i class="bi bi-geo-alt" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+</svg></i><div><h3>Nosso endereço</h3><address>R. Tuiuti, 549 – Vila Santa Catarina,<br>Americana – SP, 13466-260</address></div></div>
+          <div class="contact-item"><i class="bi bi-telephone" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+</svg></i><div><h3>Telefone / WhatsApp</h3><a href="tel:+5519987815442" data-phone aria-label="Ligar para o Distrito 549 Barbearia">(19) 98781-5442</a></div></div>
+          <div class="contact-item"><i class="bi bi-clock" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+</svg></i><div><h3>Horários</h3><p>Consulte nosso horário pelo WhatsApp</p></div></div>
+          <div class="button-group"><a class="btn btn-primary" href="https://wa.me/5519987815442?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Falar com o Distrito 549 pelo WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg></i> Falar no WhatsApp</a><a class="btn btn-outline-navy" href="https://www.google.com/maps/dir/?api=1&amp;destination=R.%20Tuiuti%2C%20549%2C%20Vila%20Santa%20Catarina%2C%20Americana%20-%20SP" target="_blank" rel="noopener noreferrer" aria-label="Abrir rota até o Distrito 549 no Google Maps"><i class="bi bi-geo-alt" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+</svg></i> Como chegar</a></div>
         </div>
         <div class="map-frame" data-reveal>
           <iframe title="Mapa: Distrito 549 Barbearia, R. Tuiuti, 549, Vila Santa Catarina, Americana – SP" src="https://maps.google.com/maps?q=R.%20Tuiuti%2C%20549%2C%20Vila%20Santa%20Catarina%2C%20Americana%20-%20SP&amp;z=16&amp;output=embed" width="600" height="520" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-          <p><i class="bi bi-geo-alt" aria-hidden="true"></i> Vila Santa Catarina · Americana, SP</p>
+          <p><i class="bi bi-geo-alt" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+</svg></i> Vila Santa Catarina · Americana, SP</p>
         </div>
       </div>
     </section>
 
     <section class="section final-cta" aria-labelledby="cta-title">
-      <div class="container final-cta-layout" data-reveal><div><p class="eyebrow eyebrow-light"><span></span> SEU ESTILO TEM ENDEREÇO</p><h2 id="cta-title">Seu próximo corte<br>começa aqui.</h2><p>Chame no WhatsApp e combine seu horário no Distrito 549.</p></div><a class="btn btn-primary" href="#contato" data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Agendar seu próximo horário no Distrito 549 pelo WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Agendar no WhatsApp</a></div>
+      <div class="container final-cta-layout" data-reveal><div><p class="eyebrow eyebrow-light"><span></span> SEU ESTILO TEM ENDEREÇO</p><h2 id="cta-title">Seu próximo corte<br>começa aqui.</h2><p>Chame no WhatsApp e combine seu horário no Distrito 549.</p></div><a class="btn btn-primary" href="https://wa.me/5519987815442?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Agendar seu próximo horário no Distrito 549 pelo WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg></i> Agendar no WhatsApp</a></div>
     </section>
   </main>
   <footer class="site-footer">
@@ -151,17 +429,180 @@
     <div class="container footer-layout">
       <div>
         <a class="brand footer-brand" href="#inicio" aria-label="Distrito 549 Barbearia — voltar ao início">
-          <img class="brand-logo" src="assets/img/logo.png" alt="Distrito 549 Barbearia" width="170" height="48" loading="lazy" data-logo hidden>
           <span class="brand-wordmark" data-logo-fallback>DISTRITO <strong>549</strong><small>BARBEARIA</small></span>
         </a>
         <p>Corte e barba.<br>Há 5 anos em Americana.</p>
       </div>
-      <div><h2>Visite o Distrito</h2><address>R. Tuiuti, 549 – Vila Santa Catarina,<br>Americana – SP, 13466-260</address><a href="#contato" data-phone aria-label="Ligar para o Distrito 549 Barbearia">(19) 98781-5442</a></div>
+      <div><h2>Visite o Distrito</h2><address>R. Tuiuti, 549 – Vila Santa Catarina,<br>Americana – SP, 13466-260</address><a href="tel:+5519987815442" data-phone aria-label="Ligar para o Distrito 549 Barbearia">(19) 98781-5442</a></div>
       <nav aria-label="Navegação do rodapé"><h2>Explore</h2><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#agendamento">Como agendar</a><a href="#contato">Localização</a></nav>
     </div>
     <div class="container footer-bottom"><p>© <span data-year>2026</span> Distrito 549 Barbearia. Todos os direitos reservados.</p><span>AMERICANA · SP</span></div>
   </footer>
 
-  <a class="whatsapp-float" href="#contato" data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Fale com o Distrito 549 pelo WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i><span class="whatsapp-tooltip">Fale com a gente</span></a>
+  <a class="whatsapp-float" href="https://wa.me/5519987815442?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Fale com o Distrito 549 pelo WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg></i><span class="whatsapp-tooltip">Fale com a gente</span></a>
+  <template id="licenca-icones"><pre>The MIT License (MIT)
+
+Copyright (c) 2019-2024 The Bootstrap Authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</pre></template>
+  <script>
+(() => {
+  "use strict";
+
+  const business = Object.freeze({
+    name: "Distrito 549 Barbearia",
+    whatsappNumber: "5519987815442",
+    whatsappMessage: "Olá! Vim pelo site e gostaria de agendar um horário."
+  });
+
+  const whatsappUrl = "https://wa.me/" + business.whatsappNumber + "?text=" + encodeURIComponent(business.whatsappMessage);
+  document.querySelectorAll("[data-whatsapp]").forEach((link) => {
+    link.href = whatsappUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+  });
+
+  const phone = business.whatsappNumber.slice(2);
+  document.querySelectorAll("[data-phone]").forEach((link) => {
+    link.href = "tel:+" + business.whatsappNumber;
+    link.textContent = "(" + phone.slice(0, 2) + ") " + phone.slice(2, 7) + "-" + phone.slice(7);
+  });
+
+  document.querySelectorAll("[data-year]").forEach((element) => {
+    element.textContent = new Date().getFullYear();
+  });
+
+  document.querySelectorAll("[data-logo]").forEach((img) => {
+    const fallback = img.parentElement.querySelector("[data-logo-fallback]");
+    const update = () => {
+      const ready = img.complete && img.naturalWidth > 0;
+      img.hidden = !ready;
+      if (fallback) fallback.hidden = ready;
+    };
+    img.addEventListener("load", update);
+    img.addEventListener("error", update);
+    update();
+  });
+
+  document.querySelectorAll("[data-photo]").forEach((img) => {
+    const update = () => {
+      const ready = img.complete && img.naturalWidth > 1;
+      img.closest("[data-photo-frame]")?.classList.toggle("has-photo", ready);
+      img.hidden = !ready;
+    };
+    img.addEventListener("load", update);
+    img.addEventListener("error", update);
+    if (img.complete) update();
+  });
+
+  const header = document.querySelector("#cabecalho");
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector("#menu-principal");
+  const desktop = window.matchMedia("(min-width: 1024px)");
+  const watchMedia = (query, callback) => {
+    if (typeof query.addEventListener === "function") query.addEventListener("change", callback);
+    else if (typeof query.addListener === "function") query.addListener(callback);
+  };
+
+  if (header && toggle && menu) {
+    document.documentElement.classList.add("js-enabled");
+    toggle.hidden = false;
+    const setMenu = (open, restoreFocus = false) => {
+      menu.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+      if (restoreFocus) toggle.focus();
+    };
+    toggle.addEventListener("click", () => {
+      toggle.focus({ preventScroll: true });
+      setMenu(toggle.getAttribute("aria-expanded") !== "true");
+    });
+    menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") setMenu(false, true);
+    });
+    document.addEventListener("click", (event) => {
+      if (!header.contains(event.target)) setMenu(false);
+    });
+    header.addEventListener("focusout", (event) => {
+      if (event.relatedTarget && !header.contains(event.relatedTarget)) setMenu(false);
+    });
+    watchMedia(desktop, () => setMenu(false));
+    const measureHeader = () => {
+      document.documentElement.style.setProperty("--header-height", header.offsetHeight + "px");
+    };
+    if ("ResizeObserver" in window) new ResizeObserver(measureHeader).observe(header);
+    else window.addEventListener("resize", measureHeader);
+    measureHeader();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureHeader);
+    const updateHeader = () => header.classList.toggle("is-scrolled", window.scrollY > 20);
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    updateHeader();
+  }
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let revealObserver;
+  const configureReveal = () => {
+    revealObserver?.disconnect();
+    const elements = document.querySelectorAll("[data-reveal]");
+    if (reducedMotion.matches || !("IntersectionObserver" in window)) {
+      elements.forEach((element) => element.classList.remove("reveal-pending"));
+      return;
+    }
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.remove("reveal-pending");
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+    elements.forEach((element) => {
+      if (element.getBoundingClientRect().top <= window.innerHeight) return;
+      element.classList.add("reveal-pending");
+      revealObserver.observe(element);
+    });
+  };
+  configureReveal();
+  watchMedia(reducedMotion, configureReveal);
+
+  const schema = document.createElement("script");
+  schema.type = "application/ld+json";
+  schema.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: business.name,
+    description: "Barbearia em Americana - SP. Corte de cabelo e barba.",
+    telephone: "+" + business.whatsappNumber,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "R. Tuiuti, 549 – Vila Santa Catarina",
+      addressLocality: "Americana",
+      addressRegion: "SP",
+      postalCode: "13466-260",
+      addressCountry: "BR"
+    }
+  });
+  document.head.append(schema);
+})();
+</script>
 </body>
 </html>
