@@ -1,0 +1,12 @@
+/* Adaptação pontual do Freelancer original: cores e fotografias. */
+:root{--bs-primary:#c6323f;--bs-primary-rgb:198,50,63;--bs-secondary:#243e60;--bs-secondary-rgb:36,62,96;--bs-link-color:#b32734;--bs-link-hover-color:#8c1e29}
+.btn-primary{--bs-btn-bg:#c6323f;--bs-btn-border-color:#c6323f;--bs-btn-hover-bg:#aa2531;--bs-btn-hover-border-color:#aa2531;--bs-btn-active-bg:#92202a;--bs-btn-active-border-color:#92202a;--bs-btn-disabled-bg:#c6323f;--bs-btn-disabled-border-color:#c6323f;--bs-btn-focus-shadow-rgb:198,50,63}
+#mainNav .navbar-nav li.nav-item a.nav-link:hover{color:#ef818b}#mainNav .navbar-nav li.nav-item a.nav-link.active{background:#c6323f;color:#fff}
+.portfolio .portfolio-item .portfolio-item-caption{background:rgba(198,50,63,.9)}
+.footer{background-color:#243e60}.copyright{background-color:#192c44}
+.masthead-avatar{height:15rem;object-fit:cover;object-position:center;border-radius:50%;border:5px solid rgba(255,255,255,.8)}
+.portfolio-photo{display:block;width:100%;height:350px;object-fit:contain;background:#f1f3f5}.gallery-photo{max-height:55vh;min-width:201px;object-fit:contain}
+.svg-icon{display:inline-block;width:1em;height:1em;vertical-align:-.125em}.fa-3x{font-size:3em}.fa-fw{width:1.25em}
+.portfolio-item:focus-visible{outline:4px solid #243e60;outline-offset:5px}
+@media(max-width:575px){.masthead-heading{overflow-wrap:normal}.portfolio-photo{height:320px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
